@@ -1,0 +1,10 @@
+{
+	"id": "x-clipper",
+	"name": "X Clipper",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Clip X posts as markdown",
+	"author": "c14mx",
+	"authorUrl": "https://www.c14.mx",
+	"isDesktopOnly": false
+}

@@ -1,0 +1,44 @@
+.x-clipper-input {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid var(--input-border-color);
+	border-radius: 4px;
+	background-color: var(--input-background-color);
+	color: var(--text-normal);
+	font-size: 14px;
+	box-sizing: border-box;
+	margin-bottom: 16px;
+}
+
+.x-clipper-input::placeholder {
+	color: var(--text-muted);
+}
+
+.x-clipper-error {
+	color: var(--text-error);
+	visibility: hidden;
+	font-size: 12px;
+	flex: 1;
+	margin-right: 8px;
+}
+
+.x-clipper-error.is-visible {
+	visibility: visible;
+}
+
+.x-clipper-actions {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 16px;
+}
+
+.x-clipper-button-group {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+}
+
+.x-clipper-button-group button {
+	width: auto;
+}
