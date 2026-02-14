@@ -1,7 +1,7 @@
-import type { XPostData } from "./fetch-x-post";
+import type { XPost } from "./fetch-x-post";
 import { formatDate } from "./utils";
 
-export function generateMarkdown(post: XPostData): string {
+export function generateMarkdown(post: XPost): string {
 	const created = formatDate(post.created_at);
 	const today = formatDate(new Date());
 	const displayName = post.author.name;
@@ -36,7 +36,7 @@ published: ${created}
 	return md;
 }
 
-function formatArticle(post: XPostData): string | undefined {
+function formatArticle(post: XPost): string | undefined {
 	const article = post.article;
 	if (!article) return undefined;
 
@@ -52,7 +52,7 @@ function formatArticle(post: XPostData): string | undefined {
 
 	const urls = article.entities?.urls ?? [];
 	for (const u of urls) {
-		const url = u.text;
+		const url = u.url;
 		if (url.startsWith("http")) {
 			const display = url.replace(/^https?:\/\//, "");
 			resolved = resolved.replace(url, `[${display}](${url})`);
@@ -64,7 +64,7 @@ function formatArticle(post: XPostData): string | undefined {
 	return resolved;
 }
 
-function resolveUrls(text: string, post: XPostData): string {
+function resolveUrls(text: string, post: XPost): string {
 	const urls = [
 		...(post.note_tweet?.entities?.urls ?? []),
 		...(post.entities?.urls ?? []),
